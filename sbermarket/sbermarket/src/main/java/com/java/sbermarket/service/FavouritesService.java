@@ -41,8 +41,6 @@ public class FavouritesService {
 
     public Favourites removeProduct(Long id, Long productId) {
         Favourites favourites = getById(id);
-        Product product = productService.getById(productId);
-
         Product productToRemove = favourites.getProducts().stream().filter(item -> item.getProductId().equals(productId)).findFirst().orElseThrow(() -> new EntityNotFoundException());
         favourites.getProducts().remove(productToRemove);
         favouritesRepository.save(favourites);

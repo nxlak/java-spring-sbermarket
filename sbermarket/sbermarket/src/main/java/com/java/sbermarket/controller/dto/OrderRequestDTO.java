@@ -6,16 +6,19 @@ import java.util.stream.Collectors;
 import com.java.sbermarket.entity.Order;
 import com.java.sbermarket.entity.OrderItem;
 
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderRequestDTO {
 
     private List<OrderItemRequestDTO> orderItems;
 
     public List<OrderItemRequestDTO> getOrderItems() {
         return orderItems;
-    }
-
-    public void setOrderItems(List<OrderItemRequestDTO> orderItems) {
-        this.orderItems = orderItems;
     }
 
     public Order toEntity() {

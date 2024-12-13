@@ -25,7 +25,7 @@ public class ProductService {
     }
 
     public Long save(String name, String photo_source, BigDecimal weight, BigDecimal price) {
-        Product product = new Product(name, photo_source, weight, price);
+        Product product = Product.builder().name(name).photo_source(photo_source).weight(weight).price(price).build();
         return productRepository.save(product).getProductId();
     }
 }

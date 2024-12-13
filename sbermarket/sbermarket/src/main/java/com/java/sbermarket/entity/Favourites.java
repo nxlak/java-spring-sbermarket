@@ -4,8 +4,13 @@ import java.util.List;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Data
+@NoArgsConstructor 
+@AllArgsConstructor
+@Builder
 public class Favourites {
     
     @Id
@@ -15,29 +20,4 @@ public class Favourites {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Product> products;
 
-    public Favourites(List<Product> products) {
-        this.products = products;
-    }
-
-    public Favourites() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    
 }

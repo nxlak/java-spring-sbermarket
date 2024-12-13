@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.java.sbermarket.controller.dto.OrderRequestDTO;
 import com.java.sbermarket.entity.Order;
-import com.java.sbermarket.entity.OrderItem;
 import com.java.sbermarket.entity.User;
 import com.java.sbermarket.repository.OrderRepository;
 
@@ -33,8 +32,6 @@ public class OrderService {
     public Order getById(Long orderId) {
         return orderRepository.findById(orderId).orElseThrow(() -> new EntityNotFoundException("can't find this order"));
     }
-
-
 
     public Order addOrder(Long userId, OrderRequestDTO orderRequestDTO) {
         User user = userService.getById(userId); 

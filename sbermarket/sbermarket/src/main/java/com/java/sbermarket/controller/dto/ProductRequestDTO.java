@@ -4,6 +4,13 @@ import java.math.BigDecimal;
 
 import com.java.sbermarket.entity.Product;
 
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductRequestDTO {
     
     private Long productId;
@@ -16,46 +23,6 @@ public class ProductRequestDTO {
     
     private BigDecimal price;
  
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoto_source() {
-        return photo_source;
-    }
-
-    public void setPhoto_source(String photo_source) {
-        this.photo_source = photo_source;
-    }
-
-    public BigDecimal getWeight() {
-        return weight;
-    }
-
-    public void setWeight(BigDecimal weight) {
-        this.weight = weight;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
     public Product toEntity() {
         Product product = new Product();
         product.setProductId(this.getProductId());

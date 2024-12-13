@@ -1,8 +1,13 @@
 package com.java.sbermarket.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Data
+@NoArgsConstructor 
+@AllArgsConstructor
+@Builder
 public class OrderItem {
     
     @Id
@@ -13,43 +18,4 @@ public class OrderItem {
 
     private Integer amount;
 
-    public OrderItem(Long productId, Integer amount) {
-        this.productId = productId;
-        this.amount = amount;
-    }
-
-    public OrderItem() {
-
-    }
-
-    public Long getOrderItemId() {
-        return orderItemId;
-    }
-
-    public void setOrderItemId(Long orderItemId) {
-        this.orderItemId = orderItemId;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderItem [orderItemId=" + orderItemId + ", productId=" + productId + ", amount=" + amount + "]";
-    }
-
-    
 }

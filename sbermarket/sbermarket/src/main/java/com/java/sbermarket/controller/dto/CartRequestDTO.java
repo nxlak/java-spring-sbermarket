@@ -6,16 +6,19 @@ import java.util.stream.Collectors;
 
 import com.java.sbermarket.entity.Cart;
 
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class CartRequestDTO {
 
     private List<CartItemRequestDTO> cartItems;
 
     public List<CartItemRequestDTO> getCartItems() {
         return cartItems;
-    }
-
-    public void setCartItems(List<CartItemRequestDTO> cartItems) {
-        this.cartItems = cartItems;
     }
     
     public Cart toEntity() {

@@ -24,7 +24,8 @@ public class UserService {
     }
 
     public Long save(String login, String password, String mail, String phone, String address, List<PayMethod> pay_methods, Cart cart, Favourites favourites, List<Order> orders) {
-        User user = new User(login, password, mail, phone, address, pay_methods, cart, favourites, orders);
+        User user = User.builder().login(login).password(password).mail(mail).phone(phone).address(address).
+                                    pay_methods(pay_methods).cart(cart).favourites(favourites).orders(orders).build();
         return userRepository.save(user).getUserId();
     }
 

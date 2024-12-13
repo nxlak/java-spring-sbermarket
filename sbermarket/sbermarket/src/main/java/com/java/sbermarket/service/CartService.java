@@ -38,7 +38,7 @@ public class CartService {
         if (existingItem != null) {
             existingItem.setAmount(existingItem.getAmount() + quantity);
         } else {
-            CartItem newItem = new CartItem(product, quantity);
+            CartItem newItem = CartItem.builder().product(product).amount(quantity).build();
             cart.getCartItems().add(newItem);
         }
 

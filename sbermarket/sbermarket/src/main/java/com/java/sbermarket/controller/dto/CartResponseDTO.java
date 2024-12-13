@@ -5,38 +5,24 @@ import java.util.stream.Collectors;
 
 import com.java.sbermarket.entity.Cart;
 
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class CartResponseDTO {
 
     private Long cartId;
 
     private List<CartItemResponseDTO> cartItems;
 
-    public CartResponseDTO(Long cartId, List<CartItemResponseDTO> cartItems) {
-        this.cartId = cartId;
-        this.cartItems = cartItems;
-    }
-
     public CartResponseDTO(Cart cart) {
         this.cartId = cart.getCartId();
         this.cartItems = cart.getCartItems().stream()
                 .map(CartItemResponseDTO::new)
                 .collect(Collectors.toList());
-    }
-
-    public Long getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
-    }
-
-    public List<CartItemResponseDTO> getCartItems() {
-        return cartItems;
-    }
-
-    public void setCartItems(List<CartItemResponseDTO> cartItems) {
-        this.cartItems = cartItems;
     }
     
 }
